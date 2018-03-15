@@ -1,0 +1,860 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{94BFA44A-F4D0-4605-88E6-3ADD498F5E16}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fireball</RootNamespace>
+    <AssemblyName>Fireball</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CodeEditorSyntaxFiles\CodeEditorSyntaxLoader.cs" />
+    <Compile Include="CodeEditor\Editors\Autolist\AutoListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeEditor\Editors\Autolist\TabListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CodeEditor\Editors\EditView\EditViewControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CodeEditor\Editors\InfoTip\InfoTipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeEditor\Editors\IPainter.cs" />
+    <Compile Include="CodeEditor\Editors\Dialogs\FindReplace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeEditor\Editors\Dialogs\GotoLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeEditor\Editors\Dialogs\Settings.cs" />
+    <Compile Include="CodeEditor\Editors\Events.cs" />
+    <Compile Include="CodeEditor\Editors\CodeEditorControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CodeEditor\Editors\CodeEditorDesigner.cs" />
+    <Compile Include="CodeEditor\Editors\LineMarginRender.cs" />
+    <Compile Include="CodeEditor\Editors\Localizations.cs" />
+    <Compile Include="Core\Collections\Generic\FastQueue.cs" />
+    <Compile Include="Core\Collections\Generic\IKeyedCollection.cs" />
+    <Compile Include="Core\Collections\Generic\ILightCollection.cs" />
+    <Compile Include="Core\Collections\Generic\KeyedCollection.cs" />
+    <Compile Include="Core\Collections\Generic\LightCollection.cs" />
+    <Compile Include="Core\Collections\Generic\ReadOnlyCollection.cs" />
+    <Compile Include="Core\Collections\Generic\ReadOnlyKeyedCollection.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SyntaxDocument\BlockType\BlockType.cs" />
+    <Compile Include="SyntaxDocument\BlockType\BlockTypeCollection.cs" />
+    <Compile Include="SyntaxDocument\CollectionBase.cs" />
+    <Compile Include="SyntaxDocument\Document\Formatting\FormatRange.cs" />
+    <Compile Include="SyntaxDocument\Document\Formatting\FormatRangeCollection.cs" />
+    <Compile Include="SyntaxDocument\Document\Pattern\Pattern.cs" />
+    <Compile Include="SyntaxDocument\Document\Pattern\PatternCollection.cs" />
+    <Compile Include="SyntaxDocument\Document\Pattern\PatternList.cs" />
+    <Compile Include="SyntaxDocument\Document\Pattern\PatternListList.cs" />
+    <Compile Include="SyntaxDocument\Document\Print\SourceCodePrintDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SyntaxDocument\Document\Row\IBookmark.cs" />
+    <Compile Include="SyntaxDocument\Document\Row\IBreakpoint.cs" />
+    <Compile Include="SyntaxDocument\Document\Row\Row.cs" />
+    <Compile Include="SyntaxDocument\Document\Row\RowCollection.cs" />
+    <Compile Include="SyntaxDocument\Document\Row\Scope\Scope.cs" />
+    <Compile Include="SyntaxDocument\Document\Row\Scope\ScopeCollection.cs" />
+    <Compile Include="SyntaxDocument\Document\Segment\Segment.cs" />
+    <Compile Include="SyntaxDocument\Document\Segment\SegmentCollection.cs" />
+    <Compile Include="SyntaxDocument\Document\Structs.cs" />
+    <Compile Include="SyntaxDocument\Document\SyntaxDocument.cs" />
+    <Compile Include="SyntaxDocument\Document\TextRange.cs" />
+    <Compile Include="SyntaxDocument\Document\TextStyle\TextStyle.cs" />
+    <Compile Include="SyntaxDocument\Document\TextStyle\TextStyleDesignerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SyntaxDocument\Document\TextStyle\TextStyleUIEditor.cs" />
+    <Compile Include="SyntaxDocument\Document\Undo\UndoBlock.cs" />
+    <Compile Include="SyntaxDocument\Document\Undo\UndoBlockCollection.cs" />
+    <Compile Include="SyntaxDocument\Document\Undo\UndoBuffer.cs" />
+    <Compile Include="SyntaxDocument\Document\Word\Word.cs" />
+    <Compile Include="SyntaxDocument\Document\Word\WordCollection.cs" />
+    <Compile Include="SyntaxDocument\Export\HTMLExporter.cs" />
+    <Compile Include="SyntaxDocument\IntCollection.cs" />
+    <Compile Include="SyntaxDocument\Language\Language.cs" />
+    <Compile Include="SyntaxDocument\Language\LanguageList.cs" />
+    <Compile Include="SyntaxDocument\Language\LanguageReader.cs" />
+    <Compile Include="SyntaxDocument\Parser\DefaultParser.cs" />
+    <Compile Include="SyntaxDocument\Parser\IParser.cs" />
+    <Compile Include="SyntaxDocument\Parser\ParseTools.cs" />
+    <Compile Include="Win32\ComInterfaces.cs" />
+    <Compile Include="Win32\Costants.cs" />
+    <Compile Include="Win32\Enums.cs" />
+    <Compile Include="Win32\NativeGdi32Api.cs" />
+    <Compile Include="Win32\NativeImm32Api.cs" />
+    <Compile Include="Win32\NativeShellApi.cs" />
+    <Compile Include="Win32\NativeThemeApi.cs" />
+    <Compile Include="Win32\NativeUser32Api.cs" />
+    <Compile Include="Win32\Structures.cs" />
+    <Compile Include="Win32\Win32Window.cs" />
+    <Compile Include="WindowsForms\Drawing\DrawingTools.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\BorderControl.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\BorderStyle.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\CustomButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\CustomButtonStyle.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\Dialogs\WizardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\Dialogs\WizardControl.Designer.cs">
+      <DependentUpon>WizardControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\Dialogs\WizardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\Dialogs\WizardForm.Designer.cs">
+      <DependentUpon>WizardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\Dialogs\WizardPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\Dialogs\WizardPanelCollection.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\DiscoverControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\DiscoverControlDesigner.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\DiscoverGroupControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\DiscoverLanguage.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\DiscoverPane.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\DiscoverPaneDesigner.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\DiscoverProfessionalRender.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\DiscoverRenderBase.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\DiscoverSwitchBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\DocumentPresenter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\Events.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\FileSystemTreeBrowser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\FileSystemTreeBrowser.designer.cs">
+      <DependentUpon>FileSystemTreeBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\FormatLabelControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\FormatLabelElement.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\FormatLabelRow.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\FormatLabelWord.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\FormJpgQuality.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\FormJpgQuality.Designer.cs">
+      <DependentUpon>FormJpgQuality.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\GroupPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\IDiscoverRenderer.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\ImagePreview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\ImagePreview.designer.cs">
+      <DependentUpon>ImagePreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\IntelliMouse.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\IntelliMouseEvents.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\NumericBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\NumericRange.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\PicturePreview.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\RegionHandler.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\SimpleCheckRadioList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\SplitViewChildWidget.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\SplitViewThumbControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\SplitViewWidget.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\TabStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\TabStripCloseButton.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\TabStripItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\TabStripItemClosing.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\TabStripMenuGlyph.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\TuxBar\Graphic\FireIcons.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\TuxBar\Graphic\Utils.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\TuxBar\HeaderState.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\TuxBar\Themes\FireTheme.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\TuxBar\Themes\TuxTheme.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\TuxBar\TuxBarContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\TuxBar\TuxBarItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\TuxBar\TuxBarItemCollection.cs" />
+    <Compile Include="WindowsForms\Windows\Forms\TuxBar\TuxBarItemContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\TuxBar\TuxBarItemHeader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\Widget.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\WidgetListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Windows\Forms\WidgetPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SyntaxDocument\Document\SyntaxDocument.resx">
+      <DependentUpon>SyntaxDocument.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SyntaxDocument\Document\TextStyle\TextStyleDesignerDialog.resx">
+      <DependentUpon>TextStyleDesignerDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\Windows\Forms\ColorChooseControl.resx">
+      <DependentUpon>ColorChooseControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\Windows\Forms\Dialogs\WizardControl.resx">
+      <DependentUpon>WizardControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\Windows\Forms\Dialogs\WizardForm.resx">
+      <DependentUpon>WizardForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\Windows\Forms\Dialogs\WizardPanel.resx">
+      <DependentUpon>WizardPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\Windows\Forms\FormJpgQuality.resx">
+      <DependentUpon>FormJpgQuality.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\Windows\Forms\ImagePreview.resx">
+      <DependentUpon>ImagePreview.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\Windows\Forms\IntelliMouse.resx">
+      <DependentUpon>IntelliMouse.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\Windows\Forms\TuxBar\TuxBarItem.resx">
+      <DependentUpon>TuxBarItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="package.nuspec" />
+    <None Include="WindowsForms\Windows\Forms\ColorChooseControl.cs">
+      <SubType>UserControl</SubType>
+    </None>
+    <EmbeddedResource Include="Docking\Docking\DockContainer.resx">
+      <DependentUpon>DockContainer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Docking\Docking\DockWindow.resx">
+      <DependentUpon>DockWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Docking\Strings.resX">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugins\Dialogs\PluginConfigurationDialog.resx">
+      <DependentUpon>PluginConfigurationDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Core\Collections\Generic\TreeCollection.cs" />
+    <None Include="Core\Collections\Generic\TreeItem.cs" />
+    <None Include="Core\Collections\Generic\TreeItemCollection.cs" />
+    <None Include="Core\Collections\Generic\TreeItemEnumerator.cs" />
+    <Compile Include="Core\Collections\Specialized\StringCollection.cs" />
+    <Compile Include="Core\Drawing\ColorHLS.cs" />
+    <Compile Include="Core\Drawing\ColorUtils.cs" />
+    <Compile Include="Core\Drawing\Drawing2D\PixelBuffer.cs" />
+    <Compile Include="Core\Drawing\Drawing2D\PixelBufferGraphics.cs" />
+    <Compile Include="Core\Drawing\Drawing2D\PixelBufferManagedGraphics.cs" />
+    <Compile Include="Core\Drawing\Drawing2D\PixelBufferManagedRenderer.cs" />
+    <Compile Include="Core\Drawing\Drawing2D\PixelBufferRenderDelegate.cs" />
+    <Compile Include="Core\Drawing\Drawing2D\PixelBufferRenderer.cs" />
+    <Compile Include="Core\Drawing\Drawing2D\PixelBufferRenderInfo.cs" />
+    <Compile Include="Core\Drawing\FreeImage.cs" />
+    <Compile Include="Core\Drawing\FreeImageBrightness.cs" />
+    <Compile Include="Core\Drawing\FreeImageColorConversion.cs" />
+    <Compile Include="Core\Drawing\FreeImageConstrast.cs" />
+    <Compile Include="Core\Drawing\FreeImageGamma.cs" />
+    <Compile Include="Core\Drawing\FreeImageGeometryTransformation.cs" />
+    <Compile Include="Core\Drawing\FreeImagePixelTransformation.cs" />
+    <Compile Include="Core\Drawing\FreeImageRescale.cs" />
+    <Compile Include="Core\Drawing\FreeImageSupport.cs" />
+    <Compile Include="Core\Drawing\FreeImageTransformation.cs" />
+    <Compile Include="Core\Drawing\GDI\FontEnum.cs" />
+    <Compile Include="Core\Drawing\GDI\GDIBitmap.cs" />
+    <Compile Include="Core\Drawing\GDI\GDIBrushes.cs" />
+    <Compile Include="Core\Drawing\GDI\GDIColor.cs" />
+    <Compile Include="Core\Drawing\GDI\GDIFont.cs" />
+    <Compile Include="Core\Drawing\GDI\GDIObject.cs" />
+    <Compile Include="Core\Drawing\GDI\GDIPens.cs" />
+    <Compile Include="Core\Drawing\GDI\GDISurface.cs" />
+    <Compile Include="Core\Drawing\GDI\MemHandler.cs" />
+    <Compile Include="Core\Drawing\ImageInfo\Constants.cs" />
+    <Compile Include="Core\Drawing\ImageInfo\Fraction.cs" />
+    <Compile Include="Core\Drawing\ImageInfo\Info.cs" />
+    <Compile Include="Core\Drawing\ImageInfo\PropertyTag.cs" />
+    <Compile Include="Core\Drawing\Internal\FreeImageAPI.cs" />
+    <Compile Include="Core\Drawing\Internal\GDIplus.cs" />
+    <Compile Include="Core\Drawing\RoundRectangleBrush.cs" />
+    <Compile Include="Core\Drawing\Shapes\IDrawable.cs" />
+    <Compile Include="Core\Drawing\Shapes\IFillable.cs" />
+    <Compile Include="Core\Drawing\Shapes\IRectangle.cs" />
+    <Compile Include="Core\Drawing\Shapes\Shape.cs" />
+    <Compile Include="Core\Drawing\Shapes\ShapeArc.cs" />
+    <Compile Include="Core\Drawing\Shapes\ShapeBezier.cs" />
+    <Compile Include="Core\Drawing\Shapes\ShapeClosedCurve.cs" />
+    <Compile Include="Core\Drawing\Shapes\ShapeCurve.cs" />
+    <Compile Include="Core\Drawing\Shapes\ShapeEllipse.cs" />
+    <Compile Include="Core\Drawing\Shapes\ShapeLine.cs" />
+    <Compile Include="Core\Drawing\Shapes\ShapePie.cs" />
+    <Compile Include="Core\Drawing\Shapes\ShapePolygon.cs" />
+    <Compile Include="Core\Drawing\Shapes\ShapePolyline.cs" />
+    <Compile Include="Core\Drawing\Shapes\ShapeRectangle.cs" />
+    <Compile Include="Core\Drawing\Shapes\ShapeRoundRectangle.cs" />
+    <Compile Include="Core\Drawing\Shapes\ShapeSpyral.cs" />
+    <Compile Include="Core\Drawing\Shapes\ShapeStar.cs" />
+    <Compile Include="Core\Drawing\Shapes\ShapeThumbSize.cs" />
+    <Compile Include="Core\Drawing\SystemImageList.cs" />
+    <Compile Include="Core\Globalization\IMEWindow.cs" />
+    <Compile Include="Core\IO\Compression\BZip2\BZip2.cs" />
+    <Compile Include="Core\IO\Compression\BZip2\BZip2Constants.cs" />
+    <Compile Include="Core\IO\Compression\BZip2\BZip2Exception.cs" />
+    <Compile Include="Core\IO\Compression\BZip2\BZip2InputStream.cs" />
+    <Compile Include="Core\IO\Compression\BZip2\BZip2OutputStream.cs" />
+    <Compile Include="Core\IO\Compression\Checksums\Adler32.cs" />
+    <Compile Include="Core\IO\Compression\Checksums\CRC32.cs" />
+    <Compile Include="Core\IO\Compression\Checksums\IChecksum.cs" />
+    <Compile Include="Core\IO\Compression\Checksums\StrangeCRC.cs" />
+    <Compile Include="Core\IO\Compression\Core\FileSystemScanner.cs" />
+    <Compile Include="Core\IO\Compression\Core\INameTransform.cs" />
+    <Compile Include="Core\IO\Compression\Core\NameFilter.cs" />
+    <Compile Include="Core\IO\Compression\Core\PathFilter.cs" />
+    <Compile Include="Core\IO\Compression\Encryption\PkzipClassic.cs" />
+    <Compile Include="Core\IO\Compression\GZip\GZIPConstants.cs" />
+    <Compile Include="Core\IO\Compression\GZip\GZipException.cs" />
+    <Compile Include="Core\IO\Compression\GZip\GzipInputStream.cs" />
+    <Compile Include="Core\IO\Compression\GZip\GzipOutputStream.cs" />
+    <Compile Include="Core\IO\Compression\SevenZip\Common\CRC.cs" />
+    <Compile Include="Core\IO\Compression\SevenZip\Common\InBuffer.cs" />
+    <Compile Include="Core\IO\Compression\SevenZip\Common\OutBuffer.cs" />
+    <Compile Include="Core\IO\Compression\SevenZip\Compress\LZMA\LzmaBase.cs" />
+    <Compile Include="Core\IO\Compression\SevenZip\Compress\LZMA\LzmaDecoder.cs" />
+    <Compile Include="Core\IO\Compression\SevenZip\Compress\LZMA\LzmaEncoder.cs" />
+    <Compile Include="Core\IO\Compression\SevenZip\Compress\LZ\IMatchFinder.cs" />
+    <Compile Include="Core\IO\Compression\SevenZip\Compress\LZ\LzBinTree.cs" />
+    <Compile Include="Core\IO\Compression\SevenZip\Compress\LZ\LzInWindow.cs" />
+    <Compile Include="Core\IO\Compression\SevenZip\Compress\LZ\LzOutWindow.cs" />
+    <Compile Include="Core\IO\Compression\SevenZip\Compress\RangeCoder\RangeCoder.cs" />
+    <Compile Include="Core\IO\Compression\SevenZip\Compress\RangeCoder\RangeCoderBit.cs" />
+    <Compile Include="Core\IO\Compression\SevenZip\Compress\RangeCoder\RangeCoderBitTree.cs" />
+    <Compile Include="Core\IO\Compression\SevenZip\ICoder.cs" />
+    <Compile Include="Core\IO\Compression\SharpZipBaseException.cs" />
+    <Compile Include="Core\IO\Compression\Tar\InvalidHeaderException.cs" />
+    <Compile Include="Core\IO\Compression\Tar\TarArchive.cs" />
+    <Compile Include="Core\IO\Compression\Tar\TarBuffer.cs" />
+    <Compile Include="Core\IO\Compression\Tar\TarEntry.cs" />
+    <Compile Include="Core\IO\Compression\Tar\TarException.cs" />
+    <Compile Include="Core\IO\Compression\Tar\TarHeader.cs" />
+    <Compile Include="Core\IO\Compression\Tar\TarInputStream.cs" />
+    <Compile Include="Core\IO\Compression\Tar\TarOutputStream.cs" />
+    <Compile Include="Core\IO\Compression\Zip\Compression\Deflater.cs" />
+    <Compile Include="Core\IO\Compression\Zip\Compression\DeflaterConstants.cs" />
+    <Compile Include="Core\IO\Compression\Zip\Compression\DeflaterEngine.cs" />
+    <Compile Include="Core\IO\Compression\Zip\Compression\DeflaterHuffman.cs" />
+    <Compile Include="Core\IO\Compression\Zip\Compression\DeflaterPending.cs" />
+    <Compile Include="Core\IO\Compression\Zip\Compression\Inflater.cs" />
+    <Compile Include="Core\IO\Compression\Zip\Compression\InflaterDynHeader.cs" />
+    <Compile Include="Core\IO\Compression\Zip\Compression\InflaterHuffmanTree.cs" />
+    <Compile Include="Core\IO\Compression\Zip\Compression\PendingBuffer.cs" />
+    <Compile Include="Core\IO\Compression\Zip\Compression\Streams\DeflaterOutputStream.cs" />
+    <Compile Include="Core\IO\Compression\Zip\Compression\Streams\InflaterInputStream.cs" />
+    <Compile Include="Core\IO\Compression\Zip\Compression\Streams\OutputWindow.cs" />
+    <Compile Include="Core\IO\Compression\Zip\Compression\Streams\StreamManipulator.cs" />
+    <Compile Include="Core\IO\Compression\Zip\FastZip.cs" />
+    <Compile Include="Core\IO\Compression\Zip\ZipConstants.cs" />
+    <Compile Include="Core\IO\Compression\Zip\ZipEntry.cs" />
+    <Compile Include="Core\IO\Compression\Zip\ZipException.cs" />
+    <Compile Include="Core\IO\Compression\Zip\ZipFile.cs" />
+    <Compile Include="Core\IO\Compression\Zip\ZipInputStream.cs" />
+    <Compile Include="Core\IO\Compression\Zip\ZipNameTransform.cs" />
+    <Compile Include="Core\IO\Compression\Zip\ZipOutputStream.cs" />
+    <Compile Include="Core\IO\FilesCache.cs" />
+    <Compile Include="Core\IO\ZipHelper.cs" />
+    <Compile Include="Core\IO\ZipHelperDir.cs" />
+    <Compile Include="Core\IO\ZipHelperEntry.cs" />
+    <Compile Include="Core\IO\ZipHelperFile.cs" />
+    <None Include="Core\Serialization\Serializer.cs" />
+    <None Include="Core\Serialization\SerializerAttribute.cs" />
+    <None Include="Core\Serialization\SerializerPropertyAttribute.cs" />
+    <Compile Include="Core\Shell\ShellItem.cs" />
+    <Compile Include="Core\Text\WordReader.cs" />
+    <Compile Include="Core\Timers\WeakTimer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\Win32\NativeSubclasser.cs" />
+    <Compile Include="Core\Xml\XmlDocumentExtended.cs" />
+    <Compile Include="Core\Xml\XmlNodeExtended.cs" />
+    <Compile Include="Core\Xml\XmlNodeTextReader.cs" />
+    <Compile Include="Docking\Components\DragForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Docking\Components\MdiClientController.cs" />
+    <Compile Include="Docking\Controls\InertButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\AutoHidePane.cs" />
+    <Compile Include="Docking\Docking\AutoHidePaneCollection.cs" />
+    <Compile Include="Docking\Docking\AutoHideStateCollection.cs" />
+    <Compile Include="Docking\Docking\AutoHideStripBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\AutoHideStripVS2003.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\AutoHideStripVS2005.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\AutoHideTab.cs" />
+    <Compile Include="Docking\Docking\AutoHideTabCollection.cs" />
+    <Compile Include="Docking\Docking\AutoHideTabVS2003.cs" />
+    <Compile Include="Docking\Docking\AutoHideTabVS2005.cs" />
+    <Compile Include="Docking\Docking\AutoHideWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\AutoHideWindowSplitter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\DisplayingDockList.cs" />
+    <Compile Include="Docking\Docking\DockableWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\DockAreasEditor.cs" />
+    <Compile Include="Docking\Docking\DockContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\DockContentCollection.cs" />
+    <Compile Include="Docking\Docking\DockContentHandler.cs" />
+    <Compile Include="Docking\Docking\DockHelper.cs" />
+    <Compile Include="Docking\Docking\DockIndicator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\DockList.cs" />
+    <Compile Include="Docking\Docking\DockOutline.cs" />
+    <Compile Include="Docking\Docking\DockOutlineBase.cs" />
+    <Compile Include="Docking\Docking\DockPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\DockPaneCaptionBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\DockPaneCaptionVS2003.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\DockPaneCaptionVS2005.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\DockPaneCollection.cs" />
+    <Compile Include="Docking\Docking\DockPanelExtender.cs" />
+    <Compile Include="Docking\Docking\DockPanelPersist.cs" />
+    <Compile Include="Docking\Docking\DockPaneSplitter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\DockPaneStripBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <None Include="Docking\Docking\DockPaneStripVS2003.cs">
+      <SubType>Component</SubType>
+    </None>
+    <Compile Include="Docking\Docking\DockPaneStripVS2005.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\DockPaneTab.cs" />
+    <Compile Include="Docking\Docking\DockPaneTabCollection.cs" />
+    <None Include="Docking\Docking\DockPaneTabVS2003.cs" />
+    <Compile Include="Docking\Docking\DockPaneTabVS2005.cs" />
+    <Compile Include="Docking\Docking\DockWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\DockWindowCollection.cs" />
+    <Compile Include="Docking\Docking\DockWindowSplitter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\DragHandler.cs" />
+    <Compile Include="Docking\Docking\DragHandlerBase.cs" />
+    <Compile Include="Docking\Docking\DummyControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\Enums.cs" />
+    <Compile Include="Docking\Docking\EventArgs.cs" />
+    <Compile Include="Docking\Docking\FloatWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\FloatWindowCollection.cs" />
+    <Compile Include="Docking\Docking\Interfaces.cs" />
+    <Compile Include="Docking\Docking\Measures.cs" />
+    <Compile Include="Docking\Docking\NestedDockingStatus.cs" />
+    <Compile Include="Docking\Docking\SplitterBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Docking\SplitterOutline.cs" />
+    <Compile Include="Docking\Helpers\DrawHelper.cs" />
+    <Compile Include="Docking\Helpers\Localization.cs" />
+    <Compile Include="Docking\Helpers\LocalWindowsHook.cs" />
+    <Compile Include="Docking\Helpers\ResourceHelper.cs" />
+    <Compile Include="Docking\Helpers\Win32Helper.cs" />
+    <Compile Include="Docking\Win32\Enums.cs" />
+    <Compile Include="Docking\Win32\Gdi32.cs" />
+    <Compile Include="Docking\Win32\Kernel32.cs" />
+    <Compile Include="Docking\Win32\Structs.cs" />
+    <Compile Include="Docking\Win32\User32.cs" />
+    <Compile Include="Plugins\Dialogs\PluginConfigurationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugins\Dialogs\PluginConfigurationDialog.Designer.cs">
+      <DependentUpon>PluginConfigurationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugins\IPluginApplication.cs" />
+    <Compile Include="Plugins\IPluginManager.cs" />
+    <Compile Include="Plugins\IPluginObject.cs" />
+    <Compile Include="Plugins\PluginApplication.cs" />
+    <Compile Include="Plugins\PluginBase.cs" />
+    <Compile Include="Plugins\PluginInfo.cs" />
+    <Compile Include="Plugins\PluginLoadInfo.cs" />
+    <Compile Include="Plugins\PluginManager.cs" />
+    <Compile Include="Printing\BasePrintingContext.cs" />
+    <Compile Include="Printing\Block.cs" />
+    <Compile Include="Printing\BlockCollection.cs" />
+    <Compile Include="Printing\Chapter.cs" />
+    <Compile Include="Printing\FlowPage.cs" />
+    <Compile Include="Printing\FlowRow.cs" />
+    <Compile Include="Printing\FlowRowCollection.cs" />
+    <None Include="Printing\FlowRowElement.cs" />
+    <Compile Include="Printing\FontStyle.cs" />
+    <Compile Include="Printing\HorizontalAlignment.cs" />
+    <Compile Include="Printing\HorizontalLine.cs" />
+    <Compile Include="Printing\IHaveChild.cs" />
+    <Compile Include="Printing\ImageElement.cs" />
+    <Compile Include="Printing\IPrintElement.cs" />
+    <Compile Include="Printing\IPrintingContext.cs" />
+    <Compile Include="Printing\LineBreak.cs" />
+    <Compile Include="Printing\PageBreak.cs" />
+    <Compile Include="Printing\Paragraph.cs" />
+    <Compile Include="Printing\PrintableDocument.cs" />
+    <Compile Include="Printing\PrintableDocumentType.cs" />
+    <Compile Include="Printing\PrintColor.cs" />
+    <Compile Include="Printing\PrintElementBase.cs" />
+    <Compile Include="Printing\PrintElementCollection.cs" />
+    <Compile Include="Printing\PrintPen.cs" />
+    <Compile Include="Printing\Rect.cs" />
+    <Compile Include="Printing\SpanElement.cs" />
+    <Compile Include="Printing\TextBlock.cs" />
+    <Compile Include="Printing\TextElement.cs" />
+    <Compile Include="Printing\TextElementType.cs" />
+    <Compile Include="Printing\TextLabelElement.cs" />
+    <Compile Include="Printing\Types\PrintElementType.cs" />
+    <Compile Include="Printing\Types\Types.cs" />
+    <Compile Include="Printing\VerticalAlignment.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CodeEditor\Editors\Caret.cs" />
+    <Compile Include="CodeEditor\Editors\KeyboadActionList.cs" />
+    <Compile Include="CodeEditor\Editors\KeyboardAction.cs" />
+    <Compile Include="CodeEditor\Editors\Painter_GDI.cs" />
+    <Compile Include="CodeEditor\Editors\Selection.cs" />
+    <Compile Include="CodeEditor\Editors\Structs.cs" />
+    <EmbeddedResource Include="CodeEditor\Editors\Autolist\AutoListForm.resx">
+      <DependentUpon>AutoListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodeEditor\Editors\Autolist\TabListBox.resx">
+      <DependentUpon>TabListBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodeEditor\Editors\EditView\EditViewControl.resx">
+      <DependentUpon>EditViewControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodeEditor\Editors\InfoTip\InfoTipForm.resx">
+      <DependentUpon>InfoTipForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodeEditor\Editors\Dialogs\FindReplace.resx">
+      <DependentUpon>FindReplace.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodeEditor\Editors\Dialogs\GotoLine.resx">
+      <DependentUpon>GotoLine.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodeEditor\Editors\Dialogs\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodeEditor\CodeEditorControl.bmp" />
+    <EmbeddedResource Include="CodeEditor\Editors\CodeEditorControl.resx">
+      <DependentUpon>CodeEditorControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodeEditor\FlippedCursor.cur" />
+    <None Include="Plugins\PluginsDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\AutoIt.syn" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\Cobol.syn" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\CPP.syn" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\CSharp.syn" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\CSS.Syn" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\DataFlex.syn" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\Delphi.syn" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\DOSBatch.syn" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\Fortran90.syn" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CodeEditorSyntaxFiles\Syns\FoxPro.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\Gemix.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\HTML.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\Java.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\JavaScript.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\JSP.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\Lang6502.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\LotusScript.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\MSIL.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\MySQL_SQL.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\Nemerle.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\NPath.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\Oracle_SQL.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\Perl.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\PHP.Syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\Povray.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\Python.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\rtf.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\SmallTalk.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\SqlServer2K.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\SqlServer2K5.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\SqlServer7.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\SystemPolicies.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\Template.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\Text.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\TurboPascal.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\VB.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\VBNET.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\VBScript.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\VRML97.syn" />
+    <EmbeddedResource Include="CodeEditorSyntaxFiles\Syns\XML.syn" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core\Drawing\Shapes\ToDoList.txt" />
+    <Content Include="Docking\Controls\CodeDoc\InertButton.xml" />
+    <Content Include="Docking\Docking\CodeDoc\AutoHidePane.xml" />
+    <Content Include="Docking\Docking\CodeDoc\AutoHidePaneCollection.xml" />
+    <Content Include="Docking\Docking\CodeDoc\AutoHideStripBase.xml" />
+    <Content Include="Docking\Docking\CodeDoc\AutoHideStripVS2003.xml" />
+    <Content Include="Docking\Docking\CodeDoc\AutoHideTab.xml" />
+    <Content Include="Docking\Docking\CodeDoc\AutoHideTabCollection.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DisplayingDockList.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockContent.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockContentCollection.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockContentHandler.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockList.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockPane.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockPaneCaptionBase.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockPaneCaptionVS2003.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockPaneCollection.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockPanel.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockPanelExtender.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockPaneStripBase.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockPaneStripVS2003.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockPaneTab.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockPaneTabCollection.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockWindow.xml" />
+    <Content Include="Docking\Docking\CodeDoc\DockWindowCollection.xml" />
+    <Content Include="Docking\Docking\CodeDoc\Enums.xml" />
+    <Content Include="Docking\Docking\CodeDoc\EventArgs.xml" />
+    <Content Include="Docking\Docking\CodeDoc\FloatWindow.xml" />
+    <Content Include="Docking\Docking\CodeDoc\FloatWindowCollection.xml" />
+    <Content Include="Docking\Docking\CodeDoc\Interfaces.xml" />
+    <Content Include="Docking\Docking\CodeDoc\NestedDockingStatus.xml" />
+    <EmbeddedResource Include="WindowsForms\MoveUpDown.cur" />
+    <EmbeddedResource Include="WindowsForms\MoveUp.cur" />
+    <EmbeddedResource Include="WindowsForms\MoveDown.cur" />
+    <None Include="Resources\hand.cur" />
+    <None Include="Resources\BUTTON_DOWN_34.png" />
+    <None Include="Resources\BUTTON_UP_34.png" />
+    <None Include="Resources\cd.png" />
+    <None Include="Resources\desktop.png" />
+    <None Include="Resources\diskdrive.png" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\folder_document.png" />
+    <None Include="Resources\show_fever.png" />
+    <None Include="Resources\show_more.png" />
+    <None Include="Resources\TUX_32.png" />
+    <Content Include="WindowsForms\Resources\show_fever.png" />
+    <Content Include="WindowsForms\Resources\show_more.png" />
+    <Content Include="WindowsForms\Windows\Forms\DiscoverControl.bmp" />
+    <None Include="WindowsForms\Windows\Forms\hand.cur" />
+    <None Include="WindowsForms\Resources\TUX_32.png" />
+    <None Include="WindowsForms\Resources\harddisk_network.ico" />
+    <None Include="WindowsForms\Resources\folder_document.png" />
+    <None Include="WindowsForms\Resources\folder.png" />
+    <None Include="WindowsForms\Resources\diskdrive.png" />
+    <None Include="WindowsForms\Resources\desktop.png" />
+    <None Include="WindowsForms\Resources\cd.png" />
+    <None Include="WindowsForms\Resources\BUTTON_UP_34.png" />
+    <None Include="WindowsForms\Resources\BUTTON_DOWN_34.png" />
+    <EmbeddedResource Include="Docking\Resources\MdiClientController.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPaneStrip.ScrollRightEnabled.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPaneStrip.ScrollRightDisabled.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPaneStrip.ScrollLeftEnabled.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPaneStrip.ScrollLeftDisabled.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPaneStrip.CloseEnabled.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPaneStrip.CloseDisabled.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPanel.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPaneCaption.CloseEnabled.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPaneCaption.CloseDisabled.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPaneCaption.AutoHideYes.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPaneCaption.AutoHideNo.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PanelTop.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PanelTop.Active.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PanelRight.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PanelRight.Active.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PanelLeft.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PanelLeft.Active.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PanelFill.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PanelFill.Active.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PanelBottom.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PanelBottom.Active.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PaneDiamond.Top.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PaneDiamond.Right.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PaneDiamond.Left.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PaneDiamond.HotSpotIndex.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PaneDiamond.HotSpot.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PaneDiamond.Fill.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PaneDiamond.Bottom.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator.PaneDiamond.bmp" />
+    <None Include="FreeImage.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
