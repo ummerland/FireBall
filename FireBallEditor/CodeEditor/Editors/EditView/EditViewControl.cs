@@ -62,8 +62,8 @@ namespace Fireball.Windows.Forms.CodeEditor
 			{
 				"****** * ******* * ******",
 				"+---+| | |+-+-+| | |+---+",
-				"+---+¦ ¦ ¦¦-+-¦¦ ¦ ¦+---+",
-				"+---+¦ ¦ ¦+-+-¦¦ ¦ ¦+---+"
+				"+---+??¦¦-+-¦¦ ??---+",
+				"+---+???-+-¦¦ ??---+"
 			};
 
 		#endregion
@@ -920,8 +920,8 @@ namespace Fireball.Windows.Forms.CodeEditor
 					{
 						Assembly assembly = GetType().Assembly;
 
-                        Stream strm = assembly.GetManifestResourceStream("Fireball.FlippedCursor.cur");
-                        this.Cursor = new Cursor(strm);
+                       // Stream strm = assembly.GetManifestResourceStream("Fireball.FlippedCursor.cur");
+                       // this.Cursor = new Cursor(strm);
 					}
 				}
 				else
@@ -1124,7 +1124,7 @@ namespace Fireball.Windows.Forms.CodeEditor
 		private int CharType(string s)
 		{
 			string g1 = " \t";
-			string g2 = ".,-+'?´=)(/&%¤#!\"\\<>[]$£@*:;{}";
+			string g2 = ".,-+'??)(/&%?!\"\\<>[]$£@*:;{}";
 
 			if (g1.IndexOf(s) >= 0)
 				return 1;
@@ -1800,7 +1800,7 @@ namespace Fireball.Windows.Forms.CodeEditor
                         pattern = " " + Pattern + " ";
                         foreach (char c in s)
                         {
-                            if (".,+-*^\\/()[]{}@:;'?£$#%& \t=<>".IndexOf(c) >= 0)
+                            if (".,+-*^\\/()[]{}@:;'??#%& \t=<>".IndexOf(c) >= 0)
                                 t += " ";
                             else
                                 t += c;
